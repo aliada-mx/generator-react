@@ -9,6 +9,12 @@ First, install [Yeoman](http://yeoman.io) using [npm](https://www.npmjs.com/) (w
 npm install -g yo
 ```
 
+To use locally you need to `link` the package.
+
+```bash
+npm link
+```
+
 To generate a new component:
 
 ```bash
