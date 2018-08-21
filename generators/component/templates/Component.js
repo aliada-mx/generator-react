@@ -9,9 +9,7 @@ type <%= componentName %>Props = {
 };
 
 function <%= componentName %> (props: <%= componentName %>Props) {
-  const {
-    className,
-  } = props;
+  const { className } = props;
 
   return (
     <div className={cx(styles.container, className)}>

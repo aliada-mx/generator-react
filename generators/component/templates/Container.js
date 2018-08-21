@@ -8,11 +8,9 @@ type <%= componentName %>ContainerProps = {
 };
 
 class <%= componentName %>Container extends React.Component<<%= componentName %>ContainerProps> {
-  render () {
-    return (
-      <<%= componentName %> {...this.props} />
-    );
+  render() {
+    return <<%= componentName %> {...this.props} />;
   }
-};
+}
 
 export default <%= componentName %>Container;
