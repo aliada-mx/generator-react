@@ -1,24 +1,23 @@
 // @flow
 /* eslint-env jest */
-import React from 'react'
-import { shallow } from 'enzyme'
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import <%= pageName %> from '../<%= pageName %>'
+import <%= pageName %> from '../<%= pageName %>';
 
 describe('<%= pageName %>', () => {
-  let tree, props
+  let tree, props;
 
   const buildTree = (newProps = {}) => {
-    const defaultProps = {
-    }
+    const defaultProps = {};
 
-    props = Object.assign({}, defaultProps, newProps)
+    props = Object.assign({}, defaultProps, newProps);
 
-    return shallow(<<%= pageName %> {...props} />)
-  }
+    return shallow(<<%= pageName %> {...props} />);
+  };
 
   it('matches the snapshot', () => {
-    tree = buildTree()
-    expect(tree).toMatchSnapshot()
-  })
-})
+    tree = buildTree();
+    expect(tree).toMatchSnapshot();
+  });
+});
