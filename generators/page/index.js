@@ -8,10 +8,11 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
-    const { pageName } = opts;
+    const { pageName, hasGraphql } = opts;
 
     this.ctx = {
-      pageName
+      pageName,
+      hasGraphql
     };
   }
 
@@ -29,12 +30,19 @@ module.exports = class extends Generator {
         validate: value => {
           return Boolean(value) || 'You must provide a name';
         }
+      },
+      {
+        type: 'confirm',
+        name: 'hasGraphql',
+        message: 'Should it have GraphQL:',
+        default: false
       }
     ]);
 
     await this._confirmAnswers(answers);
 
     this.ctx.pageName = answers.pageName;
+    this.ctx.hasGraphql = answers.hasGraphql;
   }
 
   async _confirmAnswers(answers) {
@@ -65,13 +73,18 @@ module.exports = class extends Generator {
   }
 
   _copyTemplates() {
-    const { pageName } = this.ctx;
+    const { pageName, hasGraphql } = this.ctx;
 
     this._copyTpl('index.js', 'index.js');
     this._copyTpl('index.async.js', 'index.async.js');
     this._copyTpl('PageContainer.js', `${pageName}Container.js`);
     this._copyTpl('Page.js', `${pageName}.js`);
     this._copyTpl('Page.scss', `${pageName}.scss`);
+
+    if (hasGraphql) {
+      this._copyTpl('graphql.js', 'graphql.js');
+    }
+
     this._copyTpl('__tests__/index.test.js', '__tests__/index.test.js');
     this._copyTpl(
       '__tests__/PageContainer.test.js',

@@ -1,6 +1,9 @@
 // @flow
 import React from 'react';
+<% if (hasGraphql) { %>import compose from 'lodash/flowRight';
+import { withRouter } from 'react-router-dom';
 
+import graphql from './graphql';<% } %>
 import <%= pageName %> from './<%= pageName %>';
 
 type <%= pageName %>ContainerProps = {
@@ -14,5 +17,7 @@ class <%= pageName %>Container extends React.Component<
     return <<%= pageName %> {...this.props} />;
   }
 }
-
-export default <%= pageName %>Container;
+<% if (hasGraphql) { %>
+export default compose(withRouter, graphql)(<%= pageName %>Container);
+<% } else { %>
+export default <%= pageName %>Container;<% } %>

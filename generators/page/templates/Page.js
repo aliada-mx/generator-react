@@ -8,7 +8,7 @@ type <%= pageName %>Props = {
   className?: string,
 };
 
-function <%= pageName %> (props: <%= pageName %>Props) {
+function <%= pageName %>(props: <%= pageName %>Props) {
   const { className } = props;
 
   return (
