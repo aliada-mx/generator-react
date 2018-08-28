@@ -8,7 +8,7 @@ type <%= componentName %>Props = {
   className?: string,
 };
 
-function <%= componentName %> (props: <%= componentName %>Props) {
+function <%= componentName %>(props: <%= componentName %>Props) {
   const { className } = props;
 
   return (
@@ -16,6 +16,6 @@ function <%= componentName %> (props: <%= componentName %>Props) {
       <%= componentName %>
     </div>
   );
-};
+}
 
 export default <%= componentName %>;
