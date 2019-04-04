@@ -88,6 +88,7 @@ module.exports = class extends Generator {
     this._copyTpl('Component.scss', `${componentName}.scss`);
     this._copyTpl('__tests__/index.test.js', '__tests__/index.test.js');
     this._copyTpl('__tests__/Component.test.js', `__tests__/${componentName}.test.js`);
+    this._copyTpl('__tests__/stories.js', `__tests__/${componentName}.stories.js`);
   }
 
   _copyTpl(from, to, ctx = {}) {
