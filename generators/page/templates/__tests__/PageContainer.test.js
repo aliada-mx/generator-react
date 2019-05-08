@@ -3,7 +3,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import <%= pageName %>Container from '../<%= pageName %>Container';
+import { <%= pageName %>Container } from '../<%= pageName %>Container';
 
 describe('<%= pageName %>Container', () => {
   let tree, props;
@@ -16,7 +16,7 @@ describe('<%= pageName %>Container', () => {
     return shallow(<<%= pageName %>Container {...props} />);
   };
 
-  it('#render', () => {
+  describe('#render', () => {
     it('matches the snapshot', () => {
       tree = buildTree();
       expect(tree).toMatchSnapshot();

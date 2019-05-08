@@ -10,7 +10,7 @@ type <%= pageName %>ContainerProps = {
   className?: string,
 };
 
-class <%= pageName %>Container extends React.Component<
+export class <%= pageName %>Container extends React.Component<
   <%= pageName %>ContainerProps
 > {
   render() {
