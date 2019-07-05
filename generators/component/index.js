@@ -80,6 +80,10 @@ module.exports = class extends Generator {
     if (hasContainerComponent) {
       this._copyTpl('index.container.js', 'index.js');
       this._copyTpl('Container.js', `${componentName}Container.js`);
+      this._copyTpl(
+        '__tests__/Container.test.js',
+        `__tests__/${componentName}Container.test.js`
+      );
     } else {
       this._copyTpl('index.js', 'index.js');
     }
